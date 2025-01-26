@@ -1,0 +1,218 @@
+[2025-01-26T21:27:37.327+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-26T21:27:37.350+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: csv_to_postgres.tube_to_postgres manual__2025-01-26T21:27:33.185233+00:00 [queued]>
+[2025-01-26T21:27:37.363+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: csv_to_postgres.tube_to_postgres manual__2025-01-26T21:27:33.185233+00:00 [queued]>
+[2025-01-26T21:27:37.366+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-01-26T21:27:37.386+0000] {taskinstance.py:2889} INFO - Executing <Task(BashOperator): tube_to_postgres> on 2025-01-26 21:27:33.185233+00:00
+[2025-01-26T21:27:37.395+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1173) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-01-26T21:27:37.397+0000] {standard_task_runner.py:72} INFO - Started process 1174 to run task
+[2025-01-26T21:27:37.397+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'csv_to_postgres', 'tube_to_postgres', 'manual__2025-01-26T21:27:33.185233+00:00', '--job-id', '206', '--raw', '--subdir', 'DAGS_FOLDER/task1.py', '--cfg-path', '/tmp/tmppjqvy6jg']
+[2025-01-26T21:27:37.398+0000] {standard_task_runner.py:105} INFO - Job 206: Subtask tube_to_postgres
+[2025-01-26T21:27:37.456+0000] {task_command.py:467} INFO - Running <TaskInstance: csv_to_postgres.tube_to_postgres manual__2025-01-26T21:27:33.185233+00:00 [running]> on host 684b2a870670
+[2025-01-26T21:27:37.685+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='csv_to_postgres' AIRFLOW_CTX_TASK_ID='tube_to_postgres' AIRFLOW_CTX_EXECUTION_DATE='2025-01-26T21:27:33.185233+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-26T21:27:33.185233+00:00'
+[2025-01-26T21:27:37.686+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-26T21:27:37.712+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-01-26T21:27:37.714+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'docker exec code-challenge-meltano-1 meltano run tap-csv-2 target-postgres']
+[2025-01-26T21:27:37.742+0000] {subprocess.py:99} INFO - Output:
+[2025-01-26T21:27:40.221+0000] {subprocess.py:106} INFO - [2m2025-01-26T21:27:40.219509Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2025-01-26T21:27:41.886+0000] {subprocess.py:106} INFO - [2m2025-01-26T21:27:41.884238Z[0m [[31m[1merror    [0m] [1mCannot start plugin tap-csv-2: Catalog discovery failed: command ['/project/.meltano/extractors/tap-csv/venv/bin/tap-csv', '--config', '/project/.meltano/run/tap-csv-2/tap.363e059c-df5b-4c1b-ad74-3b504784140b.config.json', '--discover'] returned 1 with stderr:
+[2025-01-26T21:27:41.887+0000] {subprocess.py:106} INFO -  Traceback (most recent call last):
+[2025-01-26T21:27:41.888+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/bin/tap-csv", line 8, in <module>
+[2025-01-26T21:27:41.890+0000] {subprocess.py:106} INFO -     sys.exit(TapCSV.cli())
+[2025-01-26T21:27:41.891+0000] {subprocess.py:106} INFO -              ^^^^^^^^^^^^
+[2025-01-26T21:27:41.891+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 1161, in __call__
+[2025-01-26T21:27:41.892+0000] {subprocess.py:106} INFO -     return self.main(*args, **kwargs)
+[2025-01-26T21:27:41.892+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.893+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 1081, in main
+[2025-01-26T21:27:41.893+0000] {subprocess.py:106} INFO -     with self.make_context(prog_name, args, **extra) as ctx:
+[2025-01-26T21:27:41.894+0000] {subprocess.py:106} INFO -          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.894+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 949, in make_context
+[2025-01-26T21:27:41.895+0000] {subprocess.py:106} INFO -     self.parse_args(ctx, args)
+[2025-01-26T21:27:41.896+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 1417, in parse_args
+[2025-01-26T21:27:41.897+0000] {subprocess.py:106} INFO -     value, args = param.handle_parse_result(ctx, opts, args)
+[2025-01-26T21:27:41.897+0000] {subprocess.py:106} INFO -                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.898+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 2403, in handle_parse_result
+[2025-01-26T21:27:41.898+0000] {subprocess.py:106} INFO -     value = self.process_value(ctx, value)
+[2025-01-26T21:27:41.898+0000] {subprocess.py:106} INFO -             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.899+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 2365, in process_value
+[2025-01-26T21:27:41.899+0000] {subprocess.py:106} INFO -     value = self.callback(ctx, self, value)
+[2025-01-26T21:27:41.899+0000] {subprocess.py:106} INFO -             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.900+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 554, in cb_discover
+[2025-01-26T21:27:41.900+0000] {subprocess.py:106} INFO -     tap.run_discovery()
+[2025-01-26T21:27:41.900+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 309, in run_discovery
+[2025-01-26T21:27:41.901+0000] {subprocess.py:106} INFO -     catalog_text = self.catalog_json_text
+[2025-01-26T21:27:41.901+0000] {subprocess.py:106} INFO -                    ^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.902+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 329, in catalog_json_text
+[2025-01-26T21:27:41.902+0000] {subprocess.py:106} INFO -     return dump_json(self.catalog_dict, indent=2)
+[2025-01-26T21:27:41.903+0000] {subprocess.py:106} INFO -                      ^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.903+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 320, in catalog_dict
+[2025-01-26T21:27:41.903+0000] {subprocess.py:106} INFO -     return t.cast("dict", self._singer_catalog.to_dict())
+[2025-01-26T21:27:41.904+0000] {subprocess.py:106} INFO -                           ^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.904+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 340, in _singer_catalog
+[2025-01-26T21:27:41.905+0000] {subprocess.py:106} INFO -     for stream in self.streams.values()
+[2025-01-26T21:27:41.906+0000] {subprocess.py:106} INFO -                   ^^^^^^^^^^^^
+[2025-01-26T21:27:41.906+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 149, in streams
+[2025-01-26T21:27:41.907+0000] {subprocess.py:106} INFO -     for stream in self.load_streams():
+[2025-01-26T21:27:41.907+0000] {subprocess.py:106} INFO -                   ^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.908+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 373, in load_streams
+[2025-01-26T21:27:41.908+0000] {subprocess.py:106} INFO -     for stream in self.discover_streams():
+[2025-01-26T21:27:41.909+0000] {subprocess.py:106} INFO -                   ^^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.909+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/tap_csv/tap.py", line 89, in discover_streams
+[2025-01-26T21:27:41.910+0000] {subprocess.py:106} INFO -     return [
+[2025-01-26T21:27:41.910+0000] {subprocess.py:106} INFO -            ^
+[2025-01-26T21:27:41.911+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/tap_csv/tap.py", line 90, in <listcomp>
+[2025-01-26T21:27:41.911+0000] {subprocess.py:106} INFO -     CSVStream(
+[2025-01-26T21:27:41.912+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/tap_csv/client.py", line 32, in __init__
+[2025-01-26T21:27:41.913+0000] {subprocess.py:106} INFO -     super().__init__(*args, **kwargs)
+[2025-01-26T21:27:41.913+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/streams/core.py", line 182, in __init__
+[2025-01-26T21:27:41.913+0000] {subprocess.py:106} INFO -     if not self.schema:
+[2025-01-26T21:27:41.913+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^
+[2025-01-26T21:27:41.914+0000] {subprocess.py:106} INFO -   File "/usr/local/lib/python3.11/functools.py", line 1001, in __get__
+[2025-01-26T21:27:41.914+0000] {subprocess.py:106} INFO -     val = self.func(instance)
+[2025-01-26T21:27:41.914+0000] {subprocess.py:106} INFO -           ^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.915+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/tap_csv/client.py", line 137, in schema
+[2025-01-26T21:27:41.915+0000] {subprocess.py:106} INFO -     for file_path in self.get_file_paths():
+[2025-01-26T21:27:41.916+0000] {subprocess.py:106} INFO -                      ^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.916+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/tap_csv/client.py", line 82, in get_file_paths
+[2025-01-26T21:27:41.916+0000] {subprocess.py:106} INFO -     raise Exception(f"File path does not exist {file_path}")
+[2025-01-26T21:27:41.917+0000] {subprocess.py:106} INFO - Exception: File path does not exist /data_tube/customer_demographics.csv
+[2025-01-26T21:27:41.918+0000] {subprocess.py:106} INFO - [0m
+[2025-01-26T21:27:41.919+0000] {subprocess.py:106} INFO - [2m2025-01-26T21:27:41.884904Z[0m [[31m[1merror    [0m] [1mBlock run completed.          [0m [36mblock_type[0m=[35mExtractLoadBlocks[0m [36merr[0m=[35mRunnerError('Cannot start plugin tap-csv-2: Catalog discovery failed: command [\'/project/.meltano/extractors/tap-csv/venv/bin/tap-csv\', \'--config\', \'/project/.meltano/run/tap-csv-2/tap.363e059c-df5b-4c1b-ad74-3b504784140b.config.json\', \'--discover\'] returned 1 with stderr:\n Traceback (most recent call last):\n  File "/project/.meltano/extractors/tap-csv/venv/bin/tap-csv", line 8, in <module>\n    sys.exit(TapCSV.cli())\n             ^^^^^^^^^^^^\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 1161, in __call__\n    return self.main(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 1081, in main\n    with self.make_context(prog_name, args, **extra) as ctx:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 949, in make_context\n    self.parse_args(ctx, args)\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 1417, in parse_args\n    value, args = param.handle_parse_result(ctx, opts, args)\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 2403, in handle_parse_result\n    value = self.process_value(ctx, value)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 2365, in process_value\n    value = self.callback(ctx, self, value)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 554, in cb_discover\n    tap.run_discovery()\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 309, in run_discovery\n    catalog_text = self.catalog_json_text\n                   ^^^^^^^^^^^^^^^^^^^^^^\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 329, in catalog_json_text\n    return dump_json(self.catalog_dict, indent=2)\n                     ^^^^^^^^^^^^^^^^^\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 320, in catalog_dict\n    return t.cast("dict", self._singer_catalog.to_dict())\n                          ^^^^^^^^^^^^^^^^^^^^\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 340, in _singer_catalog\n    for stream in self.streams.values()\n                  ^^^^^^^^^^^^\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 149, in streams\n    for stream in self.load_streams():\n                  ^^^^^^^^^^^^^^^^^^^\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 373, in load_streams\n    for stream in self.discover_streams():\n                  ^^^^^^^^^^^^^^^^^^^^^^^\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/tap_csv/tap.py", line 89, in discover_streams\n    return [\n           ^\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/tap_csv/tap.py", line 90, in <listcomp>\n    CSVStream(\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/tap_csv/client.py", line 32, in __init__\n    super().__init__(*args, **kwargs)\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/streams/core.py", line 182, in __init__\n    if not self.schema:\n           ^^^^^^^^^^^\n  File "/usr/local/lib/python3.11/functools.py", line 1001, in __get__\n    val = self.func(instance)\n          ^^^^^^^^^^^^^^^^^^^\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/tap_csv/client.py", line 137, in schema\n    for file_path in self.get_file_paths():\n                     ^^^^^^^^^^^^^^^^^^^^^\n  File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/tap_csv/client.py", line 82, in get_file_paths\n    raise Exception(f"File path does not exist {file_path}")\nException: File path does not exist /data_tube/customer_demographics.csv\n')[0m [36mexit_codes[0m=[35m{}[0m [36mset_number[0m=[35m0[0m [36msuccess[0m=[35mFalse[0m
+[2025-01-26T21:27:41.919+0000] {subprocess.py:106} INFO - Need help fixing this problem? Visit http://melta.no/ for troubleshooting steps, or to
+[2025-01-26T21:27:41.919+0000] {subprocess.py:106} INFO - join our friendly Slack community.
+[2025-01-26T21:27:41.920+0000] {subprocess.py:106} INFO - 
+[2025-01-26T21:27:41.921+0000] {subprocess.py:106} INFO - Run invocation could not be completed as block failed: Cannot start plugin tap-csv-2: Catalog discovery failed: command ['/project/.meltano/extractors/tap-csv/venv/bin/tap-csv', '--config', '/project/.meltano/run/tap-csv-2/tap.363e059c-df5b-4c1b-ad74-3b504784140b.config.json', '--discover'] returned 1 with stderr:
+[2025-01-26T21:27:41.923+0000] {subprocess.py:106} INFO -  Traceback (most recent call last):
+[2025-01-26T21:27:41.923+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/bin/tap-csv", line 8, in <module>
+[2025-01-26T21:27:41.924+0000] {subprocess.py:106} INFO -     sys.exit(TapCSV.cli())
+[2025-01-26T21:27:41.925+0000] {subprocess.py:106} INFO -              ^^^^^^^^^^^^
+[2025-01-26T21:27:41.925+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 1161, in __call__
+[2025-01-26T21:27:41.926+0000] {subprocess.py:106} INFO -     return self.main(*args, **kwargs)
+[2025-01-26T21:27:41.926+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.927+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 1081, in main
+[2025-01-26T21:27:41.927+0000] {subprocess.py:106} INFO -     with self.make_context(prog_name, args, **extra) as ctx:
+[2025-01-26T21:27:41.928+0000] {subprocess.py:106} INFO -          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.928+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 949, in make_context
+[2025-01-26T21:27:41.929+0000] {subprocess.py:106} INFO -     self.parse_args(ctx, args)
+[2025-01-26T21:27:41.929+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 1417, in parse_args
+[2025-01-26T21:27:41.930+0000] {subprocess.py:106} INFO -     value, args = param.handle_parse_result(ctx, opts, args)
+[2025-01-26T21:27:41.930+0000] {subprocess.py:106} INFO -                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.931+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 2403, in handle_parse_result
+[2025-01-26T21:27:41.931+0000] {subprocess.py:106} INFO -     value = self.process_value(ctx, value)
+[2025-01-26T21:27:41.932+0000] {subprocess.py:106} INFO -             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.932+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/click/core.py", line 2365, in process_value
+[2025-01-26T21:27:41.933+0000] {subprocess.py:106} INFO -     value = self.callback(ctx, self, value)
+[2025-01-26T21:27:41.933+0000] {subprocess.py:106} INFO -             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.933+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 554, in cb_discover
+[2025-01-26T21:27:41.934+0000] {subprocess.py:106} INFO -     tap.run_discovery()
+[2025-01-26T21:27:41.934+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 309, in run_discovery
+[2025-01-26T21:27:41.935+0000] {subprocess.py:106} INFO -     catalog_text = self.catalog_json_text
+[2025-01-26T21:27:41.935+0000] {subprocess.py:106} INFO -                    ^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.936+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 329, in catalog_json_text
+[2025-01-26T21:27:41.936+0000] {subprocess.py:106} INFO -     return dump_json(self.catalog_dict, indent=2)
+[2025-01-26T21:27:41.937+0000] {subprocess.py:106} INFO -                      ^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.938+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 320, in catalog_dict
+[2025-01-26T21:27:41.939+0000] {subprocess.py:106} INFO -     return t.cast("dict", self._singer_catalog.to_dict())
+[2025-01-26T21:27:41.940+0000] {subprocess.py:106} INFO -                           ^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.940+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 340, in _singer_catalog
+[2025-01-26T21:27:41.941+0000] {subprocess.py:106} INFO -     for stream in self.streams.values()
+[2025-01-26T21:27:41.941+0000] {subprocess.py:106} INFO -                   ^^^^^^^^^^^^
+[2025-01-26T21:27:41.942+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 149, in streams
+[2025-01-26T21:27:41.942+0000] {subprocess.py:106} INFO -     for stream in self.load_streams():
+[2025-01-26T21:27:41.943+0000] {subprocess.py:106} INFO -                   ^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.944+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/tap_base.py", line 373, in load_streams
+[2025-01-26T21:27:41.944+0000] {subprocess.py:106} INFO -     for stream in self.discover_streams():
+[2025-01-26T21:27:41.944+0000] {subprocess.py:106} INFO -                   ^^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.945+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/tap_csv/tap.py", line 89, in discover_streams
+[2025-01-26T21:27:41.945+0000] {subprocess.py:106} INFO -     return [
+[2025-01-26T21:27:41.946+0000] {subprocess.py:106} INFO -            ^
+[2025-01-26T21:27:41.946+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/tap_csv/tap.py", line 90, in <listcomp>
+[2025-01-26T21:27:41.947+0000] {subprocess.py:106} INFO -     CSVStream(
+[2025-01-26T21:27:41.947+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/tap_csv/client.py", line 32, in __init__
+[2025-01-26T21:27:41.948+0000] {subprocess.py:106} INFO -     super().__init__(*args, **kwargs)
+[2025-01-26T21:27:41.948+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/singer_sdk/streams/core.py", line 182, in __init__
+[2025-01-26T21:27:41.949+0000] {subprocess.py:106} INFO -     if not self.schema:
+[2025-01-26T21:27:41.949+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^
+[2025-01-26T21:27:41.949+0000] {subprocess.py:106} INFO -   File "/usr/local/lib/python3.11/functools.py", line 1001, in __get__
+[2025-01-26T21:27:41.950+0000] {subprocess.py:106} INFO -     val = self.func(instance)
+[2025-01-26T21:27:41.950+0000] {subprocess.py:106} INFO -           ^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.951+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/tap_csv/client.py", line 137, in schema
+[2025-01-26T21:27:41.951+0000] {subprocess.py:106} INFO -     for file_path in self.get_file_paths():
+[2025-01-26T21:27:41.952+0000] {subprocess.py:106} INFO -                      ^^^^^^^^^^^^^^^^^^^^^
+[2025-01-26T21:27:41.952+0000] {subprocess.py:106} INFO -   File "/project/.meltano/extractors/tap-csv/venv/lib/python3.11/site-packages/tap_csv/client.py", line 82, in get_file_paths
+[2025-01-26T21:27:41.953+0000] {subprocess.py:106} INFO -     raise Exception(f"File path does not exist {file_path}")
+[2025-01-26T21:27:41.953+0000] {subprocess.py:106} INFO - Exception: File path does not exist /data_tube/customer_demographics.csv
+[2025-01-26T21:27:41.954+0000] {subprocess.py:106} INFO - 
+[2025-01-26T21:27:43.381+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2025-01-26T21:27:43.419+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-01-26T21:27:43.428+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=csv_to_postgres, task_id=tube_to_postgres, run_id=manual__2025-01-26T21:27:33.185233+00:00, execution_date=20250126T212733, start_date=20250126T212737, end_date=20250126T212743
+[2025-01-26T21:27:43.452+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-26T21:27:43.453+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 206 for task tube_to_postgres (Bash command failed. The command returned a non-zero exit code 1.; 1174)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-01-26T21:27:43.490+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-01-26T21:27:43.508+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-26T21:27:43.513+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

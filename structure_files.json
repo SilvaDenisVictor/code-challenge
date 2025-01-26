@@ -1,0 +1,62 @@
+[
+  {
+    "entity": "categories",
+    "path": "/data_tube/categories.csv",
+    "keys": ["category_id"]
+  },
+  {
+    "entity": "customers",
+    "path": "/data_tube/customers.csv",
+    "keys": ["customer_id"]
+  },
+  {
+    "entity": "employee_territories",
+    "path": "/data_tube/employee_territories.csv",
+    "keys": ["employee_id", "territory_id"]
+  },
+  {
+    "entity": "employees",
+    "path": "/data_tube/employees.csv",
+    "keys": ["employee_id"]
+  },
+  {
+    "entity": "orders",
+    "path": "/data_tube/orders.csv",
+    "keys": ["order_id"]
+  },
+  {
+    "entity": "order_details",
+    "path": "/data_tube/order_details.csv",
+    "keys": ["order_id"]
+  },
+  {
+    "entity": "products",
+    "path": "/data_tube/products.csv",
+    "keys": ["product_id"]
+  },
+  {
+    "entity": "region",
+    "path": "/data_tube/region.csv",
+    "keys": ["region_id"]
+  },
+  {
+    "entity": "shippers",
+    "path": "/data_tube/shippers.csv",
+    "keys": ["shipper_id"]
+  },
+  {
+    "entity": "suppliers",
+    "path": "/data_tube/suppliers.csv",
+    "keys": ["supplier_id"]
+  },
+  {
+    "entity": "territories",
+    "path": "/data_tube/territories.csv",
+    "keys": ["territory_id"]
+  },
+  {
+    "entity": "us_states",
+    "path": "/data_tube/us_states.csv",
+    "keys": ["state_id"]
+  }
+]

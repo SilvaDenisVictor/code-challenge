@@ -1,0 +1,32 @@
+[2025-01-26T21:31:26.504+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-26T21:31:26.520+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: csv_to_postgres.data_extracted_to_data_tube manual__2025-01-26T21:31:24.412888+00:00 [queued]>
+[2025-01-26T21:31:26.529+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: csv_to_postgres.data_extracted_to_data_tube manual__2025-01-26T21:31:24.412888+00:00 [queued]>
+[2025-01-26T21:31:26.530+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-01-26T21:31:26.638+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): data_extracted_to_data_tube> on 2025-01-26 21:31:24.412888+00:00
+[2025-01-26T21:31:26.644+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1234) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-01-26T21:31:26.646+0000] {standard_task_runner.py:72} INFO - Started process 1235 to run task
+[2025-01-26T21:31:26.646+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'csv_to_postgres', 'data_extracted_to_data_tube', 'manual__2025-01-26T21:31:24.412888+00:00', '--job-id', '207', '--raw', '--subdir', 'DAGS_FOLDER/task1.py', '--cfg-path', '/tmp/tmp0i66wucc']
+[2025-01-26T21:31:26.648+0000] {standard_task_runner.py:105} INFO - Job 207: Subtask data_extracted_to_data_tube
+[2025-01-26T21:31:26.693+0000] {task_command.py:467} INFO - Running <TaskInstance: csv_to_postgres.data_extracted_to_data_tube manual__2025-01-26T21:31:24.412888+00:00 [running]> on host 684b2a870670
+[2025-01-26T21:31:26.883+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='csv_to_postgres' AIRFLOW_CTX_TASK_ID='data_extracted_to_data_tube' AIRFLOW_CTX_EXECUTION_DATE='2025-01-26T21:31:24.412888+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-26T21:31:24.412888+00:00'
+[2025-01-26T21:31:26.884+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-26T21:31:26.917+0000] {logging_mixin.py:190} INFO - Arquivo copiado: ./data_extracted/csv/26-01-2025/order_details.csv -> ./data_tube/order_details.csv
+[2025-01-26T21:31:26.935+0000] {logging_mixin.py:190} INFO - Arquivo copiado: ./data_extracted/postgres/26-01-2025/categories.csv -> ./data_tube/categories.csv
+[2025-01-26T21:31:26.949+0000] {logging_mixin.py:190} INFO - Arquivo copiado: ./data_extracted/postgres/26-01-2025/customers.csv -> ./data_tube/customers.csv
+[2025-01-26T21:31:26.963+0000] {logging_mixin.py:190} INFO - Arquivo copiado: ./data_extracted/postgres/26-01-2025/employees.csv -> ./data_tube/employees.csv
+[2025-01-26T21:31:26.976+0000] {logging_mixin.py:190} INFO - Arquivo copiado: ./data_extracted/postgres/26-01-2025/employee_territories.csv -> ./data_tube/employee_territories.csv
+[2025-01-26T21:31:26.991+0000] {logging_mixin.py:190} INFO - Arquivo copiado: ./data_extracted/postgres/26-01-2025/orders.csv -> ./data_tube/orders.csv
+[2025-01-26T21:31:27.005+0000] {logging_mixin.py:190} INFO - Arquivo copiado: ./data_extracted/postgres/26-01-2025/products.csv -> ./data_tube/products.csv
+[2025-01-26T21:31:27.019+0000] {logging_mixin.py:190} INFO - Arquivo copiado: ./data_extracted/postgres/26-01-2025/region.csv -> ./data_tube/region.csv
+[2025-01-26T21:31:27.033+0000] {logging_mixin.py:190} INFO - Arquivo copiado: ./data_extracted/postgres/26-01-2025/shippers.csv -> ./data_tube/shippers.csv
+[2025-01-26T21:31:27.048+0000] {logging_mixin.py:190} INFO - Arquivo copiado: ./data_extracted/postgres/26-01-2025/suppliers.csv -> ./data_tube/suppliers.csv
+[2025-01-26T21:31:27.062+0000] {logging_mixin.py:190} INFO - Arquivo copiado: ./data_extracted/postgres/26-01-2025/territories.csv -> ./data_tube/territories.csv
+[2025-01-26T21:31:27.076+0000] {logging_mixin.py:190} INFO - Arquivo copiado: ./data_extracted/postgres/26-01-2025/us_states.csv -> ./data_tube/us_states.csv
+[2025-01-26T21:31:27.076+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-01-26T21:31:27.086+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-26T21:31:27.087+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=csv_to_postgres, task_id=data_extracted_to_data_tube, run_id=manual__2025-01-26T21:31:24.412888+00:00, execution_date=20250126T213124, start_date=20250126T213126, end_date=20250126T213127
+[2025-01-26T21:31:27.465+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-26T21:31:27.484+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-01-26T21:31:27.490+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

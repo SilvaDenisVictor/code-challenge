@@ -104,21 +104,21 @@ services:
     ports:
       - 5432:5432
   
-  # destination_db:
-  #   image: postgres:12
-  #   environment:
-  #     POSTGRES_DB: destination_db
-  #     POSTGRES_USER: destination_db_user
-  #     POSTGRES_PASSWORD: destination_db_password
-  #   ports:
-  #     - 5438:5432
+  destination_db:
+    image: postgres:12
+    environment:
+      POSTGRES_DB: destination_db
+      POSTGRES_USER: destination_db_user
+      POSTGRES_PASSWORD: destination_db_password
+    ports:
+      - 5438:5432
 
   meltano:
-    #image: meltano/meltano:latest
     build:
       context: .
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}/data_tube:/data_tube
+      - ${AIRFLOW_PROJ_DIR:-.}/data_extracted:/data_extracted
       - /var/run/docker.sock:/var/run/docker.sock
     expose:
       - 5000

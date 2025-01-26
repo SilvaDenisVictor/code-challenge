@@ -1,0 +1,91 @@
+[2025-01-26T20:13:56.769+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-26T20:13:56.794+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: csv_to_csv.csv_to_csv manual__2025-01-26T20:13:54.426957+00:00 [queued]>
+[2025-01-26T20:13:56.807+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: csv_to_csv.csv_to_csv manual__2025-01-26T20:13:54.426957+00:00 [queued]>
+[2025-01-26T20:13:56.821+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-01-26T20:13:56.846+0000] {taskinstance.py:2889} INFO - Executing <Task(BashOperator): csv_to_csv> on 2025-01-26 20:13:54.426957+00:00
+[2025-01-26T20:13:56.859+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'csv_to_csv', 'csv_to_csv', 'manual__2025-01-26T20:13:54.426957+00:00', '--job-id', '187', '--raw', '--subdir', 'DAGS_FOLDER/task1.py', '--cfg-path', '/tmp/tmpheda0od2']
+[2025-01-26T20:13:56.860+0000] {standard_task_runner.py:105} INFO - Job 187: Subtask csv_to_csv
+[2025-01-26T20:13:56.861+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=57) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-01-26T20:13:56.863+0000] {standard_task_runner.py:72} INFO - Started process 58 to run task
+[2025-01-26T20:13:56.912+0000] {task_command.py:467} INFO - Running <TaskInstance: csv_to_csv.csv_to_csv manual__2025-01-26T20:13:54.426957+00:00 [running]> on host 684b2a870670
+[2025-01-26T20:13:57.023+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='csv_to_csv' AIRFLOW_CTX_TASK_ID='csv_to_csv' AIRFLOW_CTX_EXECUTION_DATE='2025-01-26T20:13:54.426957+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-26T20:13:54.426957+00:00'
+[2025-01-26T20:13:57.025+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-26T20:13:57.065+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-01-26T20:13:57.068+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'docker exec code-challenge-meltano-1 meltano run tap-csv-1 target-csv']
+[2025-01-26T20:13:57.089+0000] {subprocess.py:99} INFO - Output:
+[2025-01-26T20:13:59.985+0000] {subprocess.py:106} INFO - [2m2025-01-26T20:13:59.983963Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2025-01-26T20:14:00.192+0000] {subprocess.py:106} INFO - Error: Block tap-csv-1 not found
+[2025-01-26T20:14:01.307+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2025-01-26T20:14:01.323+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-01-26T20:14:01.330+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=csv_to_csv, task_id=csv_to_csv, run_id=manual__2025-01-26T20:13:54.426957+00:00, execution_date=20250126T201354, start_date=20250126T201356, end_date=20250126T201401
+[2025-01-26T20:14:01.356+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-26T20:14:01.357+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 187 for task csv_to_csv (Bash command failed. The command returned a non-zero exit code 1.; 58)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-01-26T20:14:01.387+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-01-26T20:14:01.410+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-26T20:14:01.418+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

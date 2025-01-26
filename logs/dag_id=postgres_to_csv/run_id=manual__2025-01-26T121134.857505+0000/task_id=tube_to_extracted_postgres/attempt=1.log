@@ -1,0 +1,20 @@
+[2025-01-26T12:11:41.857+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-26T12:11:41.874+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: postgres_to_csv.tube_to_extracted_postgres manual__2025-01-26T12:11:34.857505+00:00 [queued]>
+[2025-01-26T12:11:41.883+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: postgres_to_csv.tube_to_extracted_postgres manual__2025-01-26T12:11:34.857505+00:00 [queued]>
+[2025-01-26T12:11:41.884+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-01-26T12:11:41.900+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): tube_to_extracted_postgres> on 2025-01-26 12:11:34.857505+00:00
+[2025-01-26T12:11:41.907+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=590) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-01-26T12:11:41.908+0000] {standard_task_runner.py:72} INFO - Started process 591 to run task
+[2025-01-26T12:11:41.909+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'postgres_to_csv', 'tube_to_extracted_postgres', 'manual__2025-01-26T12:11:34.857505+00:00', '--job-id', '163', '--raw', '--subdir', 'DAGS_FOLDER/task1.py', '--cfg-path', '/tmp/tmpyvyxwwz_']
+[2025-01-26T12:11:41.910+0000] {standard_task_runner.py:105} INFO - Job 163: Subtask tube_to_extracted_postgres
+[2025-01-26T12:11:41.958+0000] {task_command.py:467} INFO - Running <TaskInstance: postgres_to_csv.tube_to_extracted_postgres manual__2025-01-26T12:11:34.857505+00:00 [running]> on host e73a5f4d3461
+[2025-01-26T12:11:42.046+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='postgres_to_csv' AIRFLOW_CTX_TASK_ID='tube_to_extracted_postgres' AIRFLOW_CTX_EXECUTION_DATE='2025-01-26T12:11:34.857505+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-26T12:11:34.857505+00:00'
+[2025-01-26T12:11:42.047+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-26T12:11:42.229+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-01-26T12:11:42.240+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-26T12:11:42.240+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=postgres_to_csv, task_id=tube_to_extracted_postgres, run_id=manual__2025-01-26T12:11:34.857505+00:00, execution_date=20250126T121134, start_date=20250126T121141, end_date=20250126T121142
+[2025-01-26T12:11:42.284+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-26T12:11:42.300+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-26T12:11:42.305+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
