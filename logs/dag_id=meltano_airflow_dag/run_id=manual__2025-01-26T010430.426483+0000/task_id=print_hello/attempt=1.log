@@ -1,0 +1,23 @@
+[2025-01-26T01:04:31.213+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-26T01:04:31.232+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: meltano_airflow_dag.print_hello manual__2025-01-26T01:04:30.426483+00:00 [queued]>
+[2025-01-26T01:04:31.241+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: meltano_airflow_dag.print_hello manual__2025-01-26T01:04:30.426483+00:00 [queued]>
+[2025-01-26T01:04:31.242+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-01-26T01:04:31.257+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): print_hello> on 2025-01-26 01:04:30.426483+00:00
+[2025-01-26T01:04:31.264+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=193) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-01-26T01:04:31.266+0000] {standard_task_runner.py:72} INFO - Started process 194 to run task
+[2025-01-26T01:04:31.267+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'meltano_***_dag', 'print_hello', 'manual__2025-01-26T01:04:30.426483+00:00', '--job-id', '111', '--raw', '--subdir', 'DAGS_FOLDER/task1.py', '--cfg-path', '/tmp/tmptsiwvn4v']
+[2025-01-26T01:04:31.268+0000] {standard_task_runner.py:105} INFO - Job 111: Subtask print_hello
+[2025-01-26T01:04:31.312+0000] {task_command.py:467} INFO - Running <TaskInstance: meltano_airflow_dag.print_hello manual__2025-01-26T01:04:30.426483+00:00 [running]> on host e73a5f4d3461
+[2025-01-26T01:04:31.398+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='meltano_***_dag' AIRFLOW_CTX_TASK_ID='print_hello' AIRFLOW_CTX_EXECUTION_DATE='2025-01-26T01:04:30.426483+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-26T01:04:30.426483+00:00'
+[2025-01-26T01:04:31.399+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-26T01:04:31.414+0000] {logging_mixin.py:190} INFO - AQUIAQUIAQUIAQUIAQUIAQUIAQUI
+[2025-01-26T01:04:31.415+0000] {logging_mixin.py:190} INFO - ***.cfg  dags	     data_tube	plugins
+config	     data_extracted  logs	webserver_config.py
+[2025-01-26T01:04:31.416+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-01-26T01:04:31.426+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-26T01:04:31.427+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=meltano_***_dag, task_id=print_hello, run_id=manual__2025-01-26T01:04:30.426483+00:00, execution_date=20250126T010430, start_date=20250126T010431, end_date=20250126T010431
+[2025-01-26T01:04:31.481+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-26T01:04:31.498+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-26T01:04:31.503+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

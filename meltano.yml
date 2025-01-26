@@ -1,0 +1,36 @@
+version: 1
+default_environment: dev
+project_id: 56e0be3d-001b-4f7b-8157-268575e4db70
+environments:
+- name: dev
+- name: staging
+- name: prod
+plugins:
+  extractors:
+  - name: tap-csv
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
+    config:
+      files:
+      - entity: order_details
+        path: ./order_details.csv
+        keys:
+        - order_id
+  - name: tap-postgres
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
+    config:
+      filter_schemas:
+      - public
+      host: db
+      port: 5432
+      user: northwind_user
+      database: northwind
+      
+  loaders:
+  - name: target-csv
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/target-csv.git
+    config:
+      destination_path: /data_tube
+      output_path: /data_tube
