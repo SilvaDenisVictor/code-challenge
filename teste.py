@@ -31,10 +31,10 @@ try:
         for schema in schemas:
             print(f" - {schema[0]}")
 
-        # Consulta para listar tabelas e chaves primárias de cada esquema
+        # Consulta para listar tabelas de cada esquema
         for schema in schemas:
             schema_name = schema[0]
-            print(f"\nTabelas e chaves primárias no esquema '{schema_name}':")
+            print(f"\nTabelas no esquema '{schema_name}':")
             
             table_query = f"""
             SELECT table_name
@@ -47,31 +47,7 @@ try:
 
             if tables:
                 for table in tables:
-                    table_name = table[0]
-                    print(f"   Tabela: {table_name}")
-
-                    # Consulta para verificar as chaves primárias da tabela
-                    pk_query = f"""
-                    SELECT column_name
-                    FROM information_schema.key_column_usage
-                    WHERE table_schema = %s
-                    AND table_name = %s
-                    AND constraint_name = (
-                        SELECT constraint_name
-                        FROM information_schema.table_constraints
-                        WHERE table_schema = %s
-                        AND table_name = %s
-                        AND constraint_type = 'PRIMARY KEY'
-                    );
-                    """
-                    cursor.execute(pk_query, (schema_name, table_name, schema_name, table_name))
-                    pk_columns = cursor.fetchall()
-
-                    if pk_columns:
-                        pk_columns_list = [column[0] for column in pk_columns]
-                        print(f"     Chave Primária: {', '.join(pk_columns_list)}")
-                    else:
-                        print("     (Sem chave primária)")
+                    print(f"   - {table[0]}")
             else:
                 print("   (Nenhuma tabela encontrada)")
 except psycopg2.Error as e:

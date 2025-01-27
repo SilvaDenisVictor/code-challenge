@@ -52,4 +52,15 @@ plugins:
       host: destination_db
       port: 5438
       sqlalchemy_url: postgresql://destination_db_user:destination_db_password@destination_db:5432/destination_db
-      user: destination_db
+      user: destination_db_user
+
+  transformers:
+  - name: dbt-postgres
+    variant: dbt-labs
+    pip_url: dbt-core~=1.3.0 dbt-postgres~=1.3.0
+    config:
+      dbname: destination_db
+      host: destination_db
+      port: 5432
+      user: destination_db_user
+      schema: tap_csv_2

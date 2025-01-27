@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: landing
+    database: destination_db
+    schema: tap_csv_2
+    tables:
+      - name: categories
+        identifier: categories
+      - name: customers
+        identifier: customers
+      - name: employee_territories
+        identifier: employee_territories
+      - name: employees
+        identifier: employees
+      - name: orders
+        identifier: orders
+      - name: order_details
+        identifier: order_details
+      - name: products
+        identifier: products
+      - name: region
+        identifier: region
+      - name: shippers
+        identifier: shippers
+      - name: suppliers
+        identifier: suppliers
+      - name: territories
+        identifier: territories
+      - name: us_states
+        identifier: us_states
