@@ -3,8 +3,7 @@ from airflow.operators.bash_operator import BashOperator
 from airflow.operators.python import PythonOperator
 from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 from datetime import datetime
-from zoneinfo import ZoneInfo
-from ELT_aux import tube_to_extracted_csv, tube_to_extracted_postgres, copiar_arquivos, recuperar_tabela
+from ELT_aux import tube_to_extracted_csv, tube_to_extracted_postgres, transfer_archives, retrive_table
 
 # EXECUTA O ELT COMPLETO
 with DAG(
@@ -125,7 +124,7 @@ with DAG(
 
     extracted_to_tube_dag = PythonOperator(
         task_id="data_extracted_to_data_tube",   
-        python_callable=copiar_arquivos  
+        python_callable=transfer_archives  
     )
 
     tube_to_postgres = BashOperator(
@@ -153,7 +152,7 @@ with DAG(
 
     saving_order_with_details_table = PythonOperator(
         task_id="saving_order_with_details_table",   
-        python_callable=recuperar_tabela
+        python_callable=retrive_table
     )
 
     dbt_query >> saving_order_with_details_table
