@@ -5,11 +5,14 @@
 }}
 
 SELECT 
-  ord.order_id AS order_id_orders,  -- Renomeia order_id da tabela orders
-  ord_d.order_id AS order_id_order_details  -- Renomeia order_id da tabela order_details
+  O.*,
+  O_d.product_id,
+  O_d.unit_price,
+  O_d.quantity,
+  O_d.discount
 FROM 
-  {{ source('landing', 'orders') }} ord
+  {{ source('landing', 'orders') }} O
 JOIN 
-  {{ source('landing', 'order_details') }} ord_d
+  {{ source('landing', 'order_details') }} O_d
 ON 
-  ord.order_id = ord_d.order_id
+  O.order_id = O_d.order_id

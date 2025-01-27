@@ -1,0 +1,118 @@
+[2025-01-27T14:48:37.270+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-27T14:48:37.289+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt_query.dbt_query scheduled__2025-01-25T00:00:00+00:00 [queued]>
+[2025-01-27T14:48:37.298+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt_query.dbt_query scheduled__2025-01-25T00:00:00+00:00 [queued]>
+[2025-01-27T14:48:37.299+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-01-27T14:48:37.314+0000] {taskinstance.py:2889} INFO - Executing <Task(BashOperator): dbt_query> on 2025-01-25 00:00:00+00:00
+[2025-01-27T14:48:37.320+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=93) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-01-27T14:48:37.322+0000] {standard_task_runner.py:72} INFO - Started process 95 to run task
+[2025-01-27T14:48:37.321+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'dbt_query', 'dbt_query', 'scheduled__2025-01-25T00:00:00+00:00', '--job-id', '273', '--raw', '--subdir', 'DAGS_FOLDER/task1.py', '--cfg-path', '/tmp/tmphw8eqkv6']
+[2025-01-27T14:48:37.323+0000] {standard_task_runner.py:105} INFO - Job 273: Subtask dbt_query
+[2025-01-27T14:48:37.373+0000] {task_command.py:467} INFO - Running <TaskInstance: dbt_query.dbt_query scheduled__2025-01-25T00:00:00+00:00 [running]> on host 745fe31a110e
+[2025-01-27T14:48:37.466+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dbt_query' AIRFLOW_CTX_TASK_ID='dbt_query' AIRFLOW_CTX_EXECUTION_DATE='2025-01-25T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-01-25T00:00:00+00:00'
+[2025-01-27T14:48:37.467+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-27T14:48:37.494+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-01-27T14:48:37.496+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'docker exec code-challenge-meltano-1 meltano invoke dbt-postgres:run']
+[2025-01-27T14:48:37.507+0000] {subprocess.py:99} INFO - Output:
+[2025-01-27T14:48:40.727+0000] {subprocess.py:106} INFO - [2m2025-01-27T14:48:40.725052Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2025-01-27T14:48:44.107+0000] {subprocess.py:106} INFO - [0m14:48:44  Running with dbt=1.3.7
+[2025-01-27T14:48:44.129+0000] {subprocess.py:106} INFO - [0m14:48:44  Partial parse save file not found. Starting full parse.
+[2025-01-27T14:48:44.927+0000] {subprocess.py:106} INFO - [0m14:48:44  Found 3 models, 0 tests, 0 snapshots, 0 analyses, 289 macros, 0 operations, 0 seed files, 12 sources, 0 exposures, 0 metrics
+[2025-01-27T14:48:44.929+0000] {subprocess.py:106} INFO - [0m14:48:44
+[2025-01-27T14:48:45.204+0000] {subprocess.py:106} INFO - [0m14:48:45  Concurrency: 2 threads (target='dev')
+[2025-01-27T14:48:45.205+0000] {subprocess.py:106} INFO - [0m14:48:45
+[2025-01-27T14:48:45.213+0000] {subprocess.py:106} INFO - [0m14:48:45  1 of 3 START sql table model tap_csv_2.order_details_m ......................... [RUN]
+[2025-01-27T14:48:45.214+0000] {subprocess.py:106} INFO - [0m14:48:45  2 of 3 START sql table model tap_csv_2.order_with_details ...................... [RUN]
+[2025-01-27T14:48:45.410+0000] {subprocess.py:106} INFO - [0m14:48:45  2 of 3 ERROR creating sql table model tap_csv_2.order_with_details ............. [[31mERROR[0m in 0.19s]
+[2025-01-27T14:48:45.413+0000] {subprocess.py:106} INFO - [0m14:48:45  3 of 3 START sql table model tap_csv_2.orders_m ................................ [RUN]
+[2025-01-27T14:48:45.536+0000] {subprocess.py:106} INFO - [0m14:48:45  3 of 3 ERROR creating sql table model tap_csv_2.orders_m ....................... [[31mERROR[0m in 0.12s]
+[2025-01-27T14:48:45.541+0000] {subprocess.py:106} INFO - [0m14:48:45  1 of 3 OK created sql table model tap_csv_2.order_details_m .................... [[32mSELECT 830[0m in 0.33s]
+[2025-01-27T14:48:45.550+0000] {subprocess.py:106} INFO - [0m14:48:45
+[2025-01-27T14:48:45.551+0000] {subprocess.py:106} INFO - [0m14:48:45  Finished running 3 table models in 0 hours 0 minutes and 0.62 seconds (0.62s).
+[2025-01-27T14:48:45.559+0000] {subprocess.py:106} INFO - [0m14:48:45
+[2025-01-27T14:48:45.561+0000] {subprocess.py:106} INFO - [0m14:48:45  [31mCompleted with 2 errors and 0 warnings:[0m
+[2025-01-27T14:48:45.562+0000] {subprocess.py:106} INFO - [0m14:48:45
+[2025-01-27T14:48:45.563+0000] {subprocess.py:106} INFO - [0m14:48:45  [33mDatabase Error in model order_with_details (models/order_with_details.sql)[0m
+[2025-01-27T14:48:45.564+0000] {subprocess.py:106} INFO - [0m14:48:45    missing FROM-clause entry for table "ord"
+[2025-01-27T14:48:45.565+0000] {subprocess.py:106} INFO - [0m14:48:45    LINE 21:   ord.order_id = ord_d.order_id
+[2025-01-27T14:48:45.566+0000] {subprocess.py:106} INFO - [0m14:48:45               ^
+[2025-01-27T14:48:45.566+0000] {subprocess.py:106} INFO - [0m14:48:45    compiled Code at ../.meltano/transformers/dbt/target/run/my_meltano_project/models/order_with_details.sql
+[2025-01-27T14:48:45.567+0000] {subprocess.py:106} INFO - [0m14:48:45
+[2025-01-27T14:48:45.571+0000] {subprocess.py:106} INFO - [0m14:48:45  [33mDatabase Error in model orders_m (models/orders_m.sql)[0m
+[2025-01-27T14:48:45.571+0000] {subprocess.py:106} INFO - [0m14:48:45    relation "orders_m__dbt_backup" already exists
+[2025-01-27T14:48:45.572+0000] {subprocess.py:106} INFO - [0m14:48:45    compiled Code at ../.meltano/transformers/dbt/target/run/my_meltano_project/models/orders_m.sql
+[2025-01-27T14:48:45.573+0000] {subprocess.py:106} INFO - [0m14:48:45
+[2025-01-27T14:48:45.574+0000] {subprocess.py:106} INFO - [0m14:48:45  Done. PASS=1 WARN=0 ERROR=2 SKIP=0 TOTAL=3
+[2025-01-27T14:48:47.961+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2025-01-27T14:48:47.974+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-01-27T14:48:48.322+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=dbt_query, task_id=dbt_query, run_id=scheduled__2025-01-25T00:00:00+00:00, execution_date=20250125T000000, start_date=20250127T144837, end_date=20250127T144848
+[2025-01-27T14:48:48.350+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-27T14:48:48.351+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 273 for task dbt_query (Bash command failed. The command returned a non-zero exit code 1.; 95)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-01-27T14:48:48.376+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-01-27T14:48:48.392+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-27T14:48:48.397+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

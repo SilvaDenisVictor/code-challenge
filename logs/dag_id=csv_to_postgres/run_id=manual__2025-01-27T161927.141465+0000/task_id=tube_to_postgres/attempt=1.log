@@ -1,0 +1,96 @@
+[2025-01-27T16:21:11.069+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-27T16:21:11.086+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: csv_to_postgres.tube_to_postgres manual__2025-01-27T16:19:27.141465+00:00 [queued]>
+[2025-01-27T16:21:11.096+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: csv_to_postgres.tube_to_postgres manual__2025-01-27T16:19:27.141465+00:00 [queued]>
+[2025-01-27T16:21:11.097+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-01-27T16:21:11.113+0000] {taskinstance.py:2889} INFO - Executing <Task(BashOperator): tube_to_postgres> on 2025-01-27 16:19:27.141465+00:00
+[2025-01-27T16:21:11.122+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=876) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-01-27T16:21:11.124+0000] {standard_task_runner.py:72} INFO - Started process 881 to run task
+[2025-01-27T16:21:11.125+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'csv_to_postgres', 'tube_to_postgres', 'manual__2025-01-27T16:19:27.141465+00:00', '--job-id', '309', '--raw', '--subdir', 'DAGS_FOLDER/ELT.py', '--cfg-path', '/tmp/tmpbdaoaq5a']
+[2025-01-27T16:21:11.127+0000] {standard_task_runner.py:105} INFO - Job 309: Subtask tube_to_postgres
+[2025-01-27T16:21:11.180+0000] {task_command.py:467} INFO - Running <TaskInstance: csv_to_postgres.tube_to_postgres manual__2025-01-27T16:19:27.141465+00:00 [running]> on host 6e96b290b599
+[2025-01-27T16:21:11.277+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='csv_to_postgres' AIRFLOW_CTX_TASK_ID='tube_to_postgres' AIRFLOW_CTX_EXECUTION_DATE='2025-01-27T16:19:27.141465+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-27T16:19:27.141465+00:00'
+[2025-01-27T16:21:11.278+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-27T16:21:11.293+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-01-27T16:21:11.294+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'docker exec code-challenge-meltano-1 meltano run tap-csv-2 target-postgres']
+[2025-01-27T16:21:11.312+0000] {subprocess.py:99} INFO - Output:
+[2025-01-27T16:21:12.651+0000] {subprocess.py:106} INFO - [2m2025-01-27T16:21:12.649279Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2025-01-27T16:21:13.095+0000] {subprocess.py:106} INFO - [2m2025-01-27T16:21:13.094600Z[0m [[31m[1merror    [0m] [1mAnother 'dev:tap-csv-2-to-target-postgres' pipeline is already running which started at 2025-01-27 16:21:13.037828+00:00. To ignore this check use the '--force' option.[0m
+[2025-01-27T16:21:13.096+0000] {subprocess.py:106} INFO - [2m2025-01-27T16:21:13.095146Z[0m [[31m[1merror    [0m] [1mBlock run completed.          [0m [36mblock_type[0m=[35mExtractLoadBlocks[0m [36merr[0m=[35mRunnerError("Another 'dev:tap-csv-2-to-target-postgres' pipeline is already running which started at 2025-01-27 16:21:13.037828+00:00. To ignore this check use the '--force' option.")[0m [36mexit_codes[0m=[35m{}[0m [36mset_number[0m=[35m0[0m [36msuccess[0m=[35mFalse[0m
+[2025-01-27T16:21:13.098+0000] {subprocess.py:106} INFO - Need help fixing this problem? Visit http://melta.no/ for troubleshooting steps, or to
+[2025-01-27T16:21:13.099+0000] {subprocess.py:106} INFO - join our friendly Slack community.
+[2025-01-27T16:21:13.099+0000] {subprocess.py:106} INFO - 
+[2025-01-27T16:21:13.100+0000] {subprocess.py:106} INFO - Run invocation could not be completed as block failed: Another 'dev:tap-csv-2-to-target-postgres' pipeline is already running which started at 2025-01-27 16:21:13.037828+00:00. To ignore this check use the '--force' option.
+[2025-01-27T16:21:14.295+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2025-01-27T16:21:14.309+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-01-27T16:21:14.314+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=csv_to_postgres, task_id=tube_to_postgres, run_id=manual__2025-01-27T16:19:27.141465+00:00, execution_date=20250127T161927, start_date=20250127T162111, end_date=20250127T162114
+[2025-01-27T16:21:14.332+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-27T16:21:14.333+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 309 for task tube_to_postgres (Bash command failed. The command returned a non-zero exit code 1.; 881)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-01-27T16:21:14.354+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-01-27T16:21:14.375+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-27T16:21:14.383+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

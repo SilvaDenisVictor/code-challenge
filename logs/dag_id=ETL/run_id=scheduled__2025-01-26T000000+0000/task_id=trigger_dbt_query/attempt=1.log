@@ -1,0 +1,21 @@
+[2025-01-27T16:46:23.619+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-27T16:46:23.636+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ETL.trigger_dbt_query scheduled__2025-01-26T00:00:00+00:00 [queued]>
+[2025-01-27T16:46:23.644+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ETL.trigger_dbt_query scheduled__2025-01-26T00:00:00+00:00 [queued]>
+[2025-01-27T16:46:23.645+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-01-27T16:46:23.659+0000] {taskinstance.py:2889} INFO - Executing <Task(TriggerDagRunOperator): trigger_dbt_query> on 2025-01-26 00:00:00+00:00
+[2025-01-27T16:46:23.667+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1626) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-01-27T16:46:23.668+0000] {standard_task_runner.py:72} INFO - Started process 1628 to run task
+[2025-01-27T16:46:23.668+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ETL', 'trigger_dbt_query', 'scheduled__2025-01-26T00:00:00+00:00', '--job-id', '365', '--raw', '--subdir', 'DAGS_FOLDER/ELT.py', '--cfg-path', '/tmp/tmpf8na6zv6']
+[2025-01-27T16:46:23.670+0000] {standard_task_runner.py:105} INFO - Job 365: Subtask trigger_dbt_query
+[2025-01-27T16:46:23.717+0000] {task_command.py:467} INFO - Running <TaskInstance: ETL.trigger_dbt_query scheduled__2025-01-26T00:00:00+00:00 [running]> on host 6e96b290b599
+[2025-01-27T16:46:23.790+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ETL' AIRFLOW_CTX_TASK_ID='trigger_dbt_query' AIRFLOW_CTX_EXECUTION_DATE='2025-01-26T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-01-26T00:00:00+00:00'
+[2025-01-27T16:46:23.792+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-27T16:46:23.875+0000] {trigger_dagrun.py:257} INFO - Waiting for dbt_query on 2025-01-27 16:46:23.802807+00:00 to become allowed state ['success'] ...
+[2025-01-27T16:47:23.881+0000] {trigger_dagrun.py:271} INFO - dbt_query finished with allowed state success
+[2025-01-27T16:47:23.890+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-27T16:47:23.891+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=ETL, task_id=trigger_dbt_query, run_id=scheduled__2025-01-26T00:00:00+00:00, execution_date=20250126T000000, start_date=20250127T164623, end_date=20250127T164723
+[2025-01-27T16:47:23.940+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-27T16:47:23.954+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-27T16:47:23.959+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
