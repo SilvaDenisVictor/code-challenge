@@ -14,7 +14,7 @@ Este projeto é totalmente containerizado, o que significa que você precisará 
    git clone https://github.com/SilvaDenisVictor/code-challenge.git
 2. Entre na pasta:
    ```bash
-   cd projeto
+   cd code-challenge
 3. Entre na pasta:
    ```bash
    docker-compose up --build
