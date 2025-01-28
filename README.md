@@ -11,7 +11,7 @@ Este projeto é totalmente containerizado, o que significa que você precisará 
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/usuario/projeto.git
+   git clone https://github.com/SilvaDenisVictor/code-challenge.git
 2. Entre na pasta:
    ```bash
    cd projeto
