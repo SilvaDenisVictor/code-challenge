@@ -1,6 +1,6 @@
-logs
-plugins
-dbdata
-config
-data_extracted/csv/*
-data_extracted/postgres/*
+/logs
+/plugins
+/dbdata
+/config
+/data_extracted/csv/*
+/data_extracted/postgres/*
