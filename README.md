@@ -123,4 +123,4 @@ Os arquivos são salvos no sistema local como csv. Como o volume de dados é bai
 ````
 
 # Conclusão
-Este projeto foi desenvolvido para automatizar e modularizar o processo de ETL utilizando tecnologias como Docker, Docker Compose, Airflow, Meltano e DBT, proporcionando flexibilidade, escalabilidade e fácil manutenção. A estrutura modular das DAGs facilita a identificação e resolução de erros, enquanto a integração de diferentes componentes (loaders, extractors e transformers) permite uma orquestração eficiente das tarefas de extração, transformação e carregamento de dados.
+Este projeto foi desenvolvido para automatizar e modularizar o processo de ETL utilizando tecnologias como Docker, Docker Compose, Airflow, Meltano e DBT. A estrutura modular das DAGs facilita a identificação e resolução de erros, enquanto a integração de diferentes componentes (loaders, extractors e transformers) permite uma orquestração eficiente das tarefas de extração, transformação e carregamento de dados.
