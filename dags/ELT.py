@@ -17,24 +17,28 @@ with DAG(
         task_id='trigger_postgres_to_csv',
         trigger_dag_id='postgres_to_csv',
         wait_for_completion=True,
+        poke_interval = 5
     )
 
     trigger_csv_to_csv = TriggerDagRunOperator(
         task_id='trigger_csv_to_csv',
         trigger_dag_id='csv_to_csv',
         wait_for_completion=True,
+        poke_interval = 5
     )
 
     trigger_csv_to_postgres = TriggerDagRunOperator(
         task_id='trigger_csv_to_postgres',
         trigger_dag_id='csv_to_postgres',
         wait_for_completion=True,
+        poke_interval = 5
     )
 
     trigger_dbt_query = TriggerDagRunOperator(
         task_id='trigger_dbt_query',
         trigger_dag_id='dbt_query',
         wait_for_completion=True,
+        poke_interval = 5
     )
 
     trigger_postgres_to_csv >> trigger_csv_to_csv >> trigger_csv_to_postgres >> trigger_dbt_query
@@ -49,12 +53,14 @@ with DAG(
         task_id='trigger_postgres_to_csv',
         trigger_dag_id='postgres_to_csv',
         wait_for_completion=True,
+        poke_interval = 5
     )
 
     trigger_csv_to_csv = TriggerDagRunOperator(
         task_id='trigger_csv_to_csv',
         trigger_dag_id='csv_to_csv',
         wait_for_completion=True,
+        poke_interval = 5
     )
 
     trigger_postgres_to_csv >> trigger_csv_to_csv
@@ -69,12 +75,14 @@ with DAG(
         task_id='trigger_csv_to_postgres',
         trigger_dag_id='csv_to_postgres',
         wait_for_completion=True,
+        poke_interval = 5
     )
 
     trigger_dbt_query = TriggerDagRunOperator(
         task_id='trigger_dbt_query',
         trigger_dag_id='dbt_query',
         wait_for_completion=True,
+        poke_interval = 5
     )
 
     trigger_csv_to_postgres >> trigger_dbt_query
@@ -87,7 +95,7 @@ with DAG(
 
     postgres_to_csv = BashOperator(
         task_id='postgres_to_csv',
-        bash_command='docker exec code-challenge-meltano-1 meltano run tap-postgres target-csv',
+        bash_command='docker exec meltano meltano run tap-postgres target-csv',
     )
 
     tube_to_extracted_postgres_dag = PythonOperator(
@@ -105,7 +113,7 @@ with DAG(
 
     csv_to_csv = BashOperator(
         task_id='csv_to_csv',
-        bash_command='docker exec code-challenge-meltano-1 meltano run tap-csv-1 target-csv',
+        bash_command='docker ps && docker exec meltano meltano run tap-csv-1 target-csv',
     )
 
     tube_to_extracted_csv_dag = PythonOperator(
@@ -129,7 +137,7 @@ with DAG(
 
     tube_to_postgres = BashOperator(
         task_id='tube_to_postgres',
-        bash_command='docker exec code-challenge-meltano-1 meltano run tap-csv-2 target-postgres',
+        bash_command='docker exec meltano meltano run tap-csv-2 target-postgres',
     )
 
     cleaning_tube = BashOperator(
@@ -147,7 +155,7 @@ with DAG(
 
     dbt_query = BashOperator(
         task_id='dbt_query',
-        bash_command='docker exec code-challenge-meltano-1 meltano invoke dbt-postgres:run',
+        bash_command='docker exec meltano meltano invoke dbt-postgres:run',
     )
 
     saving_order_with_details_table = PythonOperator(

@@ -120,6 +120,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.meltano
+    container_name: meltano
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}/data_tube:/data_tube
       - ${AIRFLOW_PROJ_DIR:-.}/data_extracted:/data_extracted
