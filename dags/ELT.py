@@ -17,28 +17,28 @@ with DAG(
         task_id='trigger_postgres_to_csv',
         trigger_dag_id='postgres_to_csv',
         wait_for_completion=True,
-        poke_interval = 5
+        poke_interval = 1
     )
 
     trigger_csv_to_csv = TriggerDagRunOperator(
         task_id='trigger_csv_to_csv',
         trigger_dag_id='csv_to_csv',
         wait_for_completion=True,
-        poke_interval = 5
+        poke_interval = 1
     )
 
     trigger_csv_to_postgres = TriggerDagRunOperator(
         task_id='trigger_csv_to_postgres',
         trigger_dag_id='csv_to_postgres',
         wait_for_completion=True,
-        poke_interval = 5
+        poke_interval = 1
     )
 
     trigger_dbt_query = TriggerDagRunOperator(
         task_id='trigger_dbt_query',
         trigger_dag_id='dbt_query',
         wait_for_completion=True,
-        poke_interval = 5
+        poke_interval = 1
     )
 
     trigger_postgres_to_csv >> trigger_csv_to_csv >> trigger_csv_to_postgres >> trigger_dbt_query
@@ -53,14 +53,14 @@ with DAG(
         task_id='trigger_postgres_to_csv',
         trigger_dag_id='postgres_to_csv',
         wait_for_completion=True,
-        poke_interval = 5
+        poke_interval = 1
     )
 
     trigger_csv_to_csv = TriggerDagRunOperator(
         task_id='trigger_csv_to_csv',
         trigger_dag_id='csv_to_csv',
         wait_for_completion=True,
-        poke_interval = 5
+        poke_interval = 1
     )
 
     trigger_postgres_to_csv >> trigger_csv_to_csv
@@ -75,14 +75,14 @@ with DAG(
         task_id='trigger_csv_to_postgres',
         trigger_dag_id='csv_to_postgres',
         wait_for_completion=True,
-        poke_interval = 5
+        poke_interval = 1
     )
 
     trigger_dbt_query = TriggerDagRunOperator(
         task_id='trigger_dbt_query',
         trigger_dag_id='dbt_query',
         wait_for_completion=True,
-        poke_interval = 5
+        poke_interval = 1
     )
 
     trigger_csv_to_postgres >> trigger_dbt_query
@@ -103,7 +103,13 @@ with DAG(
         python_callable=tube_to_extracted_postgres
     )
 
-    postgres_to_csv >> tube_to_extracted_postgres_dag  
+    cleaning_tube = BashOperator(
+        task_id='cleaning_tube',
+        bash_command='cd /opt/airflow/data_tube && rm *',
+        trigger_rule = 'none_skipped'
+    )
+
+    postgres_to_csv >> tube_to_extracted_postgres_dag >> cleaning_tube
 
 # UTILIZA O MELTANO PARA EXTRAIR AS TABELA CSV, TAMBÉM ORGANIZA OS ARQUIVOS
 with DAG(
@@ -121,7 +127,13 @@ with DAG(
         python_callable=tube_to_extracted_csv
     )
 
-    csv_to_csv >> tube_to_extracted_csv_dag
+    cleaning_tube = BashOperator(
+        task_id='cleaning_tube',
+        bash_command='cd /opt/airflow/data_tube && rm *',
+        trigger_rule = 'none_skipped'
+    )
+
+    csv_to_csv >> tube_to_extracted_csv_dag >> cleaning_tube
 
 
 # EXTRAI TODAS AS TABELAS EM FORMATO CSV E TRANSFERE PARA O BANCO DE DADOS UTILIZANDO O MELTANO
@@ -143,6 +155,7 @@ with DAG(
     cleaning_tube = BashOperator(
         task_id='cleaning_tube',
         bash_command='cd /opt/airflow/data_tube && rm *',
+        trigger_rule = 'none_skipped'
     )
 
     extracted_to_tube_dag >> tube_to_postgres >> cleaning_tube

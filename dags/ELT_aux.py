@@ -28,13 +28,6 @@ def transfer_tables(src_folder: str, dest_parent_folder: str, dest_type: str):
             # Copiar o arquivo para o destino
             shutil.copy(src_file_path, dest_file_path)
 
-    # Remover todos os arquivos na pasta
-    folder = f'./{src_folder}'
-    for archive in os.listdir(folder):
-        path_archive = os.path.join(folder, archive)
-        if os.path.isfile(path_archive):
-            os.remove(path_archive)
-
 def tube_to_extracted_postgres():
     transfer_tables(src_folder='data_tube', dest_parent_folder='data_extracted', dest_type='postgres')    
 
