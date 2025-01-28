@@ -57,7 +57,7 @@ Os arquivos são salvos no sistema local como csv. Como o volume de dados é bai
 
 1. Executar pipeline para datas antigas
 
-    Também é possível executar a Task_2, fazer upload no banco de dados, com datas anteriores. Basta criar uma variável com key = DATE_EXPECTED e value = 'dd-mm-YYYY' , com a data desejada, no UI do airflow. Caso essa variável nessa seja atribuida a pipeline executa com os dados da data atual.
+    Também é possível executar a Task_2, fazer upload no banco de dados, com datas anteriores. Basta criar uma variável com key = DATE_EXPECTED e value = 'dd-mm-YYYY', com a data desejada, no UI do airflow. Caso essa variável não seja atribuida a pipeline executa com os dados da data atual.
 
 2. Schedule
     
@@ -109,7 +109,7 @@ Os arquivos são salvos no sistema local como csv. Como o volume de dados é bai
 │           └───customers.csv
 │           └───... (outros arquivos CSV)
 │
-├───data_tube               # Dados para processamento posterior
+├───data_tube               # Tube de comunicação entre containers
 ├───query                   # Consultas para processamento de dados
 │   └───order_with_details.csv # Exemplo de consulta para juntar pedidos e detalhes
 └───transform               # Arquivos para transformação de dados
@@ -120,6 +120,7 @@ Os arquivos são salvos no sistema local como csv. Como o volume de dados é bai
     └───profiles            # Perfis de configuração para DBT
         └───postgres
             └───profiles.yml  # Configurações do perfil de conexão com PostgreSQL
+````
 
-```
-
+# Conclusão
+Este projeto foi desenvolvido para automatizar e modularizar o processo de ETL utilizando tecnologias como Docker, Docker Compose, Airflow, Meltano e DBT, proporcionando flexibilidade, escalabilidade e fácil manutenção. A estrutura modular das DAGs facilita a identificação e resolução de erros, enquanto a integração de diferentes componentes (loaders, extractors e transformers) permite uma orquestração eficiente das tarefas de extração, transformação e carregamento de dados.
